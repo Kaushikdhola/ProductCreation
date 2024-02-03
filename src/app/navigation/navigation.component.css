@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+
+.logo{
+    left: 0%;
+    color:darkslategrey;
+    font-size: 30px;
+}
+
+header {
+    font-family: "Poppins", sans-serif;
+  background: white;
+  position: relative;
+  top: 0;
+  left: -10;
+  width: 100%;
+
+  padding: 1rem 2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5;
+}
+
+.logo {
+  width: 40px;
+}
+
+.nav-item {
+  position: relative  ;
+  color: darkslategray;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 25px;
+  letter-spacing: -0.13px;
+  text-decoration: none;
+  margin-left: 2.5rem;
+  transition: all 0.5s ease;
+}
+
+.nav-item:hover {
+  color: gray;
+}
+
+
+@media (max-width: 900px) {
+  header {
+    padding: 1.3rem 5%;
+  }
+
+  .content h1 {
+    font-size: 7rem;
+  }
+}
+
+@media (max-width: 700px) {
+  header::before {
+    content: "";
+    top: 0;
+    left: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(50px);
+    z-index: -1;
+  }
+
+  header::after {
+    content: "";
+    top: 0;
+    left: -100%;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    transition: 0.8s;
+  }
+
+  .navbar {
+    position: relative;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(50px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .nav-item {
+    display: block;
+    font-size: 1.1rem;
+    margin: 2rem 0;
+    text-align: center;
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .nav-item:hover::after {
+    width: auto;
+  }
+
+}
