@@ -1,5 +1,6 @@
-import { Component,ViewChild } from '@angular/core';
+import { Component,ViewChild} from '@angular/core';
 import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-product-form',
@@ -8,15 +9,29 @@ import { NgForm } from '@angular/forms';
 })
 
 export class ProductFormComponent {
-  productData: any = {};
+  @ViewChild('productForm', { static: false }) productForm!: NgForm;
+  
+
+  productData: any = {
+    productName: '',  
+    productDesc: '',
+    bid: null,
+    category: '',
+    city: '',
+    province: '',
+  };
   selectedFiles: File[] = [];
 
 
-  @ViewChild('productForm', { static: false }) productForm!: NgForm;
-
-  onSubmit(productForm: NgForm){
-    console.log(this.productData)
-    this.productForm.resetForm();
+  onSubmit(){
+    if (this.productForm.valid) {
+      console.log(this.productForm.value);
+      
+      // this.toastr.success('Form submitted successfully!');
+      this.productForm.reset();
+    } else {
+      // this.toastr.error('Please fill in all required fields.');
+    }
   }
 
   onFileSelected(event: any) {

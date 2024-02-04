@@ -6,28 +6,28 @@
     
 </div>
 <div class="product-form">
-    <form (ngSubmit)="onSubmit(productForm)"  #productForm="ngForm">
+    <form (ngSubmit)="onSubmit()"  #productForm="ngForm">
         <div class="input-row">
             <div class="input-box">
                 <label for="productName" class="details-label">Product Name:</label>
-                <input type="text" id="productName" placeholder="Your Product Name" name="productName" [(ngModel)]="productData.productName" required >
+                <input type="text" id="productName" placeholder="Your Product Name" name="productName" required [(ngModel)]="productData.productName"  >
             </div>
         
             <div class="input-box">
                 <label for="description" class="details-label">Description:</label>
-                <textarea id="Description" id="description" placeholder="Tell us about your product" rows="4" cols="50" [(ngModel)]="productData.productDesc" name="productDesc"></textarea>
+                <textarea id="Description" id="description" placeholder="Tell us about your product" rows="4" cols="50" required [(ngModel)]="productData.productDesc" name="productDesc"></textarea>
             </div>
         </div>
         <div class="input-row">
             <div class="input-box">
                 <label for="initialBid" class="details-label">Initial Bid:</label>
-                <input type="number" id="initialBid" placeholder="Expected bid?" [(ngModel)]="productData.bid" name="bid"  required>
+                <input type="number" id="initialBid" placeholder="Expected bid?" required [(ngModel)]="productData.bid" name="bid"  >
             </div>
 
             <div class="input-box">
 
                 <label for="product-category" class="details-label">Category:</label>
-                <select name="product-category" id="product-category" [(ngModel)]="productData.category" name="category" required>
+                <select name="product-category" id="product-category" required [(ngModel)]="productData.category" name="category" >
                     <option value="Choose">Choose Category</option>
                     <option value="Tech">Tech</option>
                     <option value="Book">Book</option>
@@ -39,11 +39,11 @@
         <div class="input-row">
             <div class="input-box">
                 <label for="city" class="details-label">City:</label>
-                <input type="text" id="city" placeholder="City" [(ngModel)]="productData.city" name="city" required>
+                <input type="text" id="city" placeholder="City" required [(ngModel)]="productData.city" name="city" >
             </div>
             <div class="input-box">
                 <label for="province" class="details-label">Province:</label>
-                <input type="text" id="province" placeholder="Province" [(ngModel)]="productData.province" name="province" required>
+                <input type="text" id="province" placeholder="Province" required [(ngModel)]="productData.province" name="province" >
             </div>
         
 
@@ -55,7 +55,7 @@
          </div>
         
         <div class="AddButton">
-            <input type="submit" value="Submit">
+            <input type="submit" [disabled]="!productForm.valid" value="Submit">
         </div>
 
     </form>
