@@ -7,10 +7,10 @@ import { NavigationModule } from './navigation/navigation.module';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,ProductFormModule,NavigationModule],
-
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+
 export class AppComponent {
   title = 'ProductCreation';
 }

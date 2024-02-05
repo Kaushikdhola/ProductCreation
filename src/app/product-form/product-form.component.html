@@ -2,7 +2,7 @@
 <app-navigation></app-navigation>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container1" >
-    <h1 class="heading">Treasures of the Past: Sell Your Old Goods Here</h1>
+    <h1 class="heading">Sell Your Old Goods Here</h1>
     
 </div>
 <div class="product-form">
@@ -49,17 +49,16 @@
 
         <div class="input-box">
             <label for="myFile" class="details-label">Show us some images:</label>
-            <input type="file" id="myFile" name="filename" class="file-input"  (change)="onFileSelected($event)" multiple>
+            <input type="file" id="myFile" name="filename" class="file-input"  (change)="onFileSelected($event)" multiple #fileInput>
 
         </div>
          </div>
         
         <div class="AddButton">
-            <input type="submit" [disabled]="!productForm.valid" value="Submit">
+            <input type="submit" value="Submit">
         </div>
 
     </form>
 </div>
-
 
 
