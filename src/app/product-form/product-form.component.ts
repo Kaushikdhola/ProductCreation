@@ -26,9 +26,8 @@ export class ProductFormComponent {
   selectedFiles: File[] = [];
 
 
-  onSubmit(){
+  onSubmit() {
     if (this.productForm.valid) {
-      
       if (this.areRequiredFieldsFilled()) {
         this.showMessage('Form submitted successfully!');
         console.log(this.productForm.value);
@@ -36,7 +35,6 @@ export class ProductFormComponent {
         this.productForm.reset();
         this.resetFileInput();
         this.selectedFiles = [];
-
       } else {
         this.showMessage('Please fill in all required fields, and select at least one image!');
       }
@@ -44,6 +42,8 @@ export class ProductFormComponent {
       this.showMessage('Please fill in all required fields, and select at least one image.');
     }
   }
+
+  
 
   areRequiredFieldsFilled(): boolean {
     return (
@@ -56,6 +56,7 @@ export class ProductFormComponent {
       this.selectedFiles.length > 0
     );
   }
+
 
 
   onFileSelected(event: any) {
