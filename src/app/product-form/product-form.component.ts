@@ -28,6 +28,7 @@ export class ProductFormComponent {
 
   onSubmit() {
     if (this.productForm.valid) {
+      
       if (this.areRequiredFieldsFilled()) {
         this.showMessage('Form submitted successfully!');
         console.log(this.productForm.value);
@@ -43,8 +44,6 @@ export class ProductFormComponent {
     }
   }
 
-  
-
   areRequiredFieldsFilled(): boolean {
     return (
       this.productForm.value.productName &&
@@ -56,17 +55,14 @@ export class ProductFormComponent {
       this.selectedFiles.length > 0
     );
   }
-
-
-
+  
   onFileSelected(event: any) {
-    if (this.productForm.valid) {
-        const inputElement: HTMLInputElement = event.target;
-        if (inputElement.files) {
-            for (let i = 0; i < inputElement.files.length; i++) {
-                this.selectedFiles.push(inputElement.files[i]);
-            }
-          }
+    const inputElement: HTMLInputElement = event.target;
+    this.selectedFiles = [];
+    if (inputElement.files) {
+      for (let i = 0; i < inputElement.files.length; i++) {
+        this.selectedFiles.push(inputElement.files[i]);
+      }
     }
   }
 
